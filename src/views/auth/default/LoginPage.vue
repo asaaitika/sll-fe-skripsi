@@ -39,7 +39,7 @@
 						<button
 							type="submit"
 							class="btn"
-							@click="$router.push({ path: '/admin/dashboard' })"
+							@click="$router.push('/admin/dashboard')"
 						>Sign In</button>
 					</form>
 				</div>

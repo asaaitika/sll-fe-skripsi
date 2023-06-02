@@ -53,11 +53,17 @@
 										</div>
 									</div>
 									<div class="d-flex justify-content-center">
-										<button
-											type="submit"
-											class="btn btn-primary"
-											style="background-color: #3da9fc !important; border-color: #3da9fc !important;"
-										>Login</button>
+										<router-link
+											:to="{ name: 'admin.dashboard' }"
+											v-slot="{ navigate }"
+										>
+											<button
+												type="submit"
+												class="btn btn-primary"
+												style="background-color: #3da9fc !important; border-color: #3da9fc !important;"
+												@click="navigate"
+											>Login</button>
+										</router-link>
 									</div>
 									<p class="mt-3 text-center"><a
 											href="/auth/reset-password"

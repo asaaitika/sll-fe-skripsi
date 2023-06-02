@@ -15,6 +15,41 @@ const loginChildRoutes = (prefix) => [
     component: () => import('@/views/auth/default/EmployeeLogin.vue')
   }
 ]
+
+// Manage Admin Default Routes
+const manageAdminChildRoutes = (prefix) => [
+  {
+    path: 'dashboard',
+    name: prefix + '.dashboard',
+    meta: { auth: true, name: 'Dashboard Admin' },
+    component: () => import('@/views/admin/manage/DashboardPage.vue')
+  },
+  {
+    path: 'employee',
+    name: prefix + '.employee',
+    meta: { auth: true, name: 'Manage Employee' },
+    component: () => import('@/views/admin/manage/EmployeePage.vue')
+  },
+  {
+    path: 'attendance',
+    name: prefix + '.attendance',
+    meta: { auth: true, name: 'Manage Attendance' },
+    component: () => import('@/views/admin/manage/AttendancePage.vue')
+  },
+  {
+    path: 'payroll',
+    name: prefix + '.payroll',
+    meta: { auth: true, name: 'Manage Payroll' },
+    component: () => import('@/views/admin/manage/PayrollPage.vue')
+  },
+  {
+    path: 'approval',
+    name: prefix + '.approval',
+    meta: { auth: true, name: 'Manage Approval' },
+    component: () => import('@/views/admin/manage/ApprovalPage.vue')
+  },
+]
+
 // Auth Default Routes
 const authChildRoutes = (prefix) => [
   {
@@ -66,7 +101,7 @@ const dashboardRoutes = (prefix) => [
   {
     path: '',
     name: prefix + '.dashboard',
-    meta: { auth: true, name: 'Home', isBanner: false },
+    meta: { auth: true, name: 'Dash', isBanner: false },
     component: () => import('@/views/dashboards/IndexPage.vue')
   }
 ]
@@ -273,6 +308,13 @@ const routes = [
     name: 'login',
     component: () => import('../layouts/guest/BlankLayout.vue'),
     children: loginChildRoutes('login')
+  },
+  // Manage Admin Pages
+  {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('../layouts/DefaultLayout.vue'),
+    children: manageAdminChildRoutes('admin')
   },
   // Default Pages
   {
