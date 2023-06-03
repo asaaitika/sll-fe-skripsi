@@ -16,7 +16,7 @@ const loginChildRoutes = (prefix) => [
   }
 ]
 
-// Manage Admin Default Routes
+// Manage Admin Routes
 const manageAdminChildRoutes = (prefix) => [
   {
     path: 'dashboard',
@@ -47,6 +47,34 @@ const manageAdminChildRoutes = (prefix) => [
     name: prefix + '.approval',
     meta: { auth: true, name: 'Manage Approval' },
     component: () => import('@/views/admin/manage/ApprovalPage.vue')
+  },
+]
+
+// Employee Routes
+const employeeChildRoutes = (prefix) => [
+  {
+    path: 'live-attendance',
+    name: prefix + '.liveattendance',
+    meta: { auth: true, name: 'Live Attendance' },
+    component: () => import('@/views/employee/LiveAttendancePage.vue')
+  },
+  {
+    path: 'time-off',
+    name: prefix + '.timeoff',
+    meta: { auth: true, name: 'Time Off' },
+    component: () => import('@/views/employee/TimeOffPage.vue')
+  },
+  {
+    path: 'my-slip',
+    name: prefix + '.myslip',
+    meta: { auth: true, name: 'MySlip' },
+    component: () => import('@/views/employee/MySlipPage.vue')
+  },
+  {
+    path: 'attendance-log',
+    name: prefix + '.attendancelog',
+    meta: { auth: true, name: 'Attendance Log' },
+    component: () => import('@/views/employee/AttendanceLogPage.vue')
   },
 ]
 
@@ -315,6 +343,13 @@ const routes = [
     name: 'admin',
     component: () => import('../layouts/DefaultLayout.vue'),
     children: manageAdminChildRoutes('admin')
+  },
+  // Employee Pages
+  {
+    path: '/employee',
+    name: 'employee',
+    component: () => import('../layouts/menu-styles/HorizontalLayout.vue'),
+    children: employeeChildRoutes('employee')
   },
   // Default Pages
   {

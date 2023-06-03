@@ -3,7 +3,7 @@
 		<b-col md="12">
 			<b-card>
 				<div class="d-flex align-items-center justify-content-between flex-wrap">
-					<h4 class="card-title">Employee</h4>
+					<h4 class="card-title">Approval</h4>
 				</div>
 			</b-card>
 		</b-col>
@@ -70,6 +70,7 @@
 											<b-form-select
 												:options="statusOptions"
 												id="input-1803"
+												class="form-select"
 											></b-form-select>
 										</b-col>
 									</b-row>
@@ -122,6 +123,7 @@
 										<b-form-checkbox
 											value="false"
 											aria-checked="true"
+											class="form-checkbox"
 										></b-form-checkbox>
 									</th>
 									<th style="min-width: 100px">Action</th>
@@ -154,31 +156,25 @@ export default {
 	setup() {
 		const tableData = [
 			{
-				i1: "80123456",
+				i1: "Cuti Tahunan",
+				i3: "New",
 				i2: "Cilo Anabul Budiman",
-				i3: "Human Resource",
-				i4: "Sr HR Officer",
-				i5: "cilo@mail.com",
-				i6: "089665438567",
-				i7: "Active",
+				i4: "30/05/2023",
+				i5: "-",
 			},
 			{
-				i1: "80123477",
+				i1: "Cuti Haid",
+				i3: "New",
 				i2: "Milo Anabul Budiman",
-				i3: "Sales & Marketing",
-				i4: "Recruitment Officer",
-				i5: "milo@mail.com",
-				i6: "081265438999",
-				i7: "Active",
+				i4: "30/05/2023",
+				i5: "-",
 			},
 			{
-				i1: "80123488",
+				i1: "Sakit",
+				i3: "New",
 				i2: "Lilo Anabul Budiman",
-				i3: "Development",
-				i4: "System & Network Admin",
-				i5: "lilo@mail.com",
-				i6: "087765438123",
-				i7: "Active",
+				i4: "30/05/2023",
+				i5: "-",
 			},
 		];
 		const statusOptions = [

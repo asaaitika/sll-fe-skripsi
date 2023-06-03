@@ -8,6 +8,7 @@
 				<b-form-checkbox
 					value="false"
 					aria-checked="true"
+					class="form-checkbox"
 				></b-form-checkbox>
 			</div>
 		</td>

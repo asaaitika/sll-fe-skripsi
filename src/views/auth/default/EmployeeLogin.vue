@@ -53,11 +53,16 @@
 										</div>
 									</div>
 									<div class="d-flex justify-content-center">
-										<button
-											type="submit"
-											class="btn btn-primary"
-											style="background-color: #ef4565 !important; border-color: #ef4565 !important;"
-										>Login</button>
+										<router-link
+											:to="{ name: 'employee.liveattendance' }"
+											v-slot="{ navigate }"
+										>
+											<button
+												type="submit"
+												class="btn btn-primary"
+												style="background-color: #ef4565 !important; border-color: #ef4565 !important;"
+												@click="navigate"
+											>Login</button></router-link>
 									</div>
 									<p class="mt-3 text-center">Are you Admin? <a
 											href="/"
