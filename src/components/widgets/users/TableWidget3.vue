@@ -5,6 +5,14 @@
 	>
 		<td>
 			<div class="flex align-items-center list-user-action">
+				<b-form-checkbox
+					value="false"
+					aria-checked="true"
+				></b-form-checkbox>
+			</div>
+		</td>
+		<td>
+			<div class="flex align-items-center list-user-action">
 				<a
 					class="btn btn-sm btn-icon btn-warning mx-1"
 					data-bs-toggle="tooltip"
@@ -54,8 +62,6 @@
 		<td>{{ item.i3 }}</td>
 		<td>{{ item.i4 }}</td>
 		<td>{{ item.i5 }}</td>
-		<td>{{ item.i6 }}</td>
-		<td>{{ item.i7 }}</td>
 	</tr>
 </template>
 <script>
@@ -70,8 +76,6 @@ export default {
 		i3: { type: String, default: "" },
 		i4: { type: String, default: "" },
 		i5: { type: String, default: "" },
-		i6: { type: String, default: "" },
-		i7: { type: String, default: "" },
 	},
 };
 </script>

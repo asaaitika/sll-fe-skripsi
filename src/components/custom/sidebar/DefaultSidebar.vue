@@ -7,7 +7,7 @@
 	>
 		<div class="sidebar-header d-flex align-items-center justify-content-start">
 			<router-link
-				:to="{ name: 'default.dashboard' }"
+				:to="{ name: 'admin.dashboard' }"
 				class="navbar-brand"
 			>
 				<brand-logo></brand-logo>
