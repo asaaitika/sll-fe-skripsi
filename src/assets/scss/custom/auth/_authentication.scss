@@ -8,23 +8,44 @@
 		right: 0;
 	}
 }
+
 .gradient-main {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
 }
+
 .login-bottom {
-    margin-top: -12.5rem;
+	margin-top: -12.5rem;
 }
+
+.img-admin {
+	img {
+		position: relative;
+		left: 25px;
+		top: 24%;
+	}
+}
+
+.img-employee {
+	img {
+		position: relative;
+		left: 25px;
+		top: 8%;
+	}
+}
+
 @include media-breakpoint-up(xxl) {
 	.auth-card {
 		padding: 0 6.25rem;
 	}
 }
+
 @include media-breakpoint-down(sm) {
 	.login-header {
 		height: 12.5rem !important;
 	}
+
 	.login-bottom {
 		margin-top: -6.25rem;
 	}
