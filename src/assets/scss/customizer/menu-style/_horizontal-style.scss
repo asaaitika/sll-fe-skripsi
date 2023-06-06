@@ -1,22 +1,24 @@
 //dual-horizontal
-.dual-horizontal{
+.dual-horizontal {
     background: var(--#{$variable-prefix}primary);
-    .nav{
+
+    .nav {
         background: var(--#{$variable-prefix}primary);
- 
+
     }
+
 }
 
 //boxed
 
-    .boxed{
-        background: var(--#{$variable-prefix}primary);
-    }
+.boxed {
+    background: var(--#{$variable-prefix}primary);
+}
 
 
 //boxed-fancy
-.boxed-fancy{
-    &::before{
+.boxed-fancy {
+    &::before {
         background: var(--#{$variable-prefix}primary);
     }
 }

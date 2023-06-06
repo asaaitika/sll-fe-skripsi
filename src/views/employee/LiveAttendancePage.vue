@@ -24,7 +24,7 @@
 			</b-card>
 		</b-col>
 		<b-col sm="6">
-			<h1>kjfhsjkhfd</h1>
+			<h1>Schedule Office</h1>
 		</b-col>
 	</b-row>
 
