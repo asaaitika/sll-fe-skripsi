@@ -100,32 +100,31 @@ export default {
 
 @media only screen and (max-width: 768px) {
 	.welcome-card {
-		flex-direction: row;
-	}
+    flex-direction: row;
+  }
 
-	.welcome-card .text-greeting {
-		font-size: 15px;
-	}
+  .welcome-card .text-greeting {
+    font-size: 15px;
+  }
 
-	.date-welcome {
-		padding: 5px;
-		margin-top: 5px;
-	}
+  .date-welcome {
+    padding: 5px;
+  }
 
-	.welcome-time {
-		left: 38%;
-		bottom: 75%;
-		font-size: 17px;
-	}
+  .welcome-time {
+    left: 38%;
+    bottom: 27%;
+    font-size: 17px;
+  }
 
-	.welcome-image img {
-		width: 100px;
-	}
+  .welcome-image img {
+    width: 150px;
+  }
 
-	.welcome-image {
-		position: fixed;
-		right: 7%;
-		bottom: 71%;
-	}
+  .welcome-image {
+    position: absolute;
+    right: 7%;
+    top: 13%;
+  }
 }
 </style>

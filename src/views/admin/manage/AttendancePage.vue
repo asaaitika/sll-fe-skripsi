@@ -249,6 +249,14 @@
 		</b-col>
 	</b-row>
 
+	<template>
+		<div id="app">
+
+			<!-- Add the style and icon you want using the String format -->
+			<font-awesome-icon icon="location-dot" style="color: #0557e6;" />
+		</div>
+</template>
+
 </template>
 
 <script>
@@ -290,9 +298,9 @@ export default {
 			items: [
 				{
 					id: "Cilo Anabul Budiman",
-					1: "v",
-					2: "v",
-					3: "v",
+					1: "WFH",
+					2: "WFO",
+					3: "WFH",
 					4: "",
 					5: "",
 					6: "",
@@ -307,9 +315,9 @@ export default {
 				},
 				{
 					id: "Milo Anabul Budiman",
-					1: "v",
-					2: "v",
-					3: "v",
+					1: "WFO",
+					2: "WFH",
+					3: "WFH",
 					4: "",
 					5: "",
 					6: "",
@@ -324,9 +332,9 @@ export default {
 				},
 				{
 					id: "Lilo Anabul Budiman",
-					1: "v",
-					2: "v",
-					3: "v",
+					1: "WFH",
+					2: "WFO",
+					3: "WFH",
 					4: "",
 					5: "",
 					6: "",

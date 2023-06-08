@@ -1,4 +1,6 @@
-import { createApp } from 'vue'
+import {
+  createApp
+} from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
@@ -8,7 +10,10 @@ import store from './store'
 import VueSweetalert2 from 'vue-sweetalert2'
 import VueApexCharts from 'vue3-apexcharts'
 import BootstrapVue3 from 'bootstrap-vue-3'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import {
+  BootstrapVue,
+  IconsPlugin
+} from 'bootstrap-vue'
 import CounterUp from 'vue3-autocounter'
 import 'aos/dist/aos.css'
 
@@ -19,6 +24,31 @@ import globalMixin from './plugins/global-mixin'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+
+// fontawesome
+
+// /* import the fontawesome core */
+// import {
+//   library
+// } from '@fortawesome/fontawesome-svg-core'
+
+// /* import font awesome icon component */
+// import {
+//   FontAwesomeIcon
+// } from '@fortawesome/vue-fontawesome'
+
+// /* import specific icons */
+// import {
+//   faUserSecret
+// } from '@fortawesome/free-solid-svg-icons'
+
+// /* add icons to the library */
+// library.add(faUserSecret)
+
+// createApp(App)
+//   .component('font-awesome-icon', FontAwesomeIcon)
+//   .mount('#app')
+
 
 require('waypoints/lib/noframework.waypoints.min')
 
