@@ -242,6 +242,11 @@
 									{{ scope.label }}
 								</div>
 							</template>
+							<template>
+								<div id="font">
+									{{ scope.font }}
+								</div>
+							</template>
 						</b-table>
 					</div>
 				</b-card-body>
@@ -249,13 +254,7 @@
 		</b-col>
 	</b-row>
 
-	<template>
-		<div id="app">
-
-			<!-- Add the style and icon you want using the String format -->
-			<font-awesome-icon icon="location-dot" style="color: #0557e6;" />
-		</div>
-</template>
+	
 
 </template>
 
