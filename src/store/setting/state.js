@@ -35,7 +35,8 @@ export const initialState = {
       value: []
     },
     sidebar_menu_style: {
-      value: 'sidebar-default navs-rounded-all'
+      // value: 'sidebar-default navs-rounded-all'
+      value: 'sidebar-default navs-rounded'
     },
     header_navbar: {
       value: 'default'
@@ -114,7 +115,8 @@ export const defaultState = {
       target: '[data-toggle="main-sidebar"]',
       choices: ['sidebar-default navs-rounded', 'sidebar-default navs-rounded-all', 'sidebar-default navs-pill', 'sidebar-default navs-pill-all'],
       type: 'layout_design',
-      value: 'sidebar-default navs-rounded-all'
+      // value: 'sidebar-default navs-rounded-all'
+      value: 'sidebar-default navs-rounded'
     },
     header_navbar: {
       target: '.iq-navbar',
