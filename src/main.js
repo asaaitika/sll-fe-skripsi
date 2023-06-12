@@ -42,7 +42,7 @@ app.use(globalComponent)
 app.use(globalDirective)
 app.mixin(globalMixin)
 
-app.use(VueAxios, axios)
+axios.defaults.baseURL = `https://api-bwastartup.asaaitika.my.id/api/v1`;
 
 app.mount('#app')
 

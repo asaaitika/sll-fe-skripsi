@@ -33,7 +33,7 @@
 											>Employee Name</label>
 										</b-col>
 										<b-col sm="9">
-											<b-form-input id="input-8101"></b-form-input>
+											<b-form-input id="input-8101" v-model="employeeName"></b-form-input>
 										</b-col>
 									</b-row>
 								</b-col>
@@ -84,7 +84,7 @@
 						</b-form-group>
 						<br>
 						<div class="d-flex gap-2 flex-wrap justify-content-center">
-							<b-button variant="primary">Search</b-button>
+							<b-button variant="primary" @click="doSearch">Search</b-button>
 							<b-button class="btn-white">Reset</b-button>
 						</div>
 					</b-form>
@@ -120,32 +120,62 @@
 						</div>
 					</div>
 				</b-card-header>
-				<b-card-body>
-					<div class="table-responsive">
-						<table
-							id="user-list-table"
-							class="table table-striped"
-							role="grid"
-							data-toggle="data-table"
-						>
-							<thead>
-								<tr class="ligth">
-									<th style="min-width: 100px">Action</th>
-									<th>NIK</th>
-									<th>Full Name</th>
-									<th>Division</th>
-									<th>Role</th>
-									<th>Email</th>
-									<th>Telephone</th>
-									<th>Status</th>
-								</tr>
-							</thead>
-							<tbody>
-								<table-widget :list="tableData" />
-							</tbody>
-						</table>
-					</div>
-				</b-card-body>
+
+<!--        :url="url"-->
+        <table-widget
+          id="user-list-table"
+          :headers="tableHeader"
+          ref="ref_list"
+        >
+          <template v-slot:action>
+            <td>
+              <div class="flex align-items-center list-user-action">
+                <a
+                  class="btn btn-sm btn-icon btn-warning mx-1"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  data-bs-original-title="Edit"
+                  href="#"
+                >
+                  <span class="btn-inner">
+                    <icon-component
+                      type="outlined"
+                      icon-name="pencil-alt"
+                    />
+                  </span>
+                </a>
+                <a
+                  class="btn btn-sm btn-icon btn-danger mx-1"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  data-bs-original-title="Delete"
+                  href="#"
+                >
+                  <span class="btn-inner">
+                    <icon-component
+                      type="outlined"
+                      icon-name="trash"
+                    />
+                  </span>
+                </a>
+                <a
+                  class="btn btn-sm btn-icon btn-success mx-1"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="View"
+                  href="#"
+                >
+                  <span class="btn-inner">
+                    <icon-component
+                      type="outlined"
+                      icon-name="eye"
+                    />
+                  </span>
+                </a>
+              </div>
+            </td>
+          </template>
+        </table-widget>
 			</b-card>
 		</b-col>
 	</b-row>
@@ -159,40 +189,40 @@ export default {
 	components: {
 		TableWidget,
 	},
-	setup() {
-		const tableData = [
-			{
-				i1: "80123456",
-				i2: "Cilo Anabul Budiman",
-				i3: "Human Resource",
-				i4: "Sr HR Officer",
-				i5: "cilo@mail.com",
-				i6: "089665438567",
-				i7: "Active",
-			},
-			{
-				i1: "80123477",
-				i2: "Milo Anabul Budiman",
-				i3: "Sales & Marketing",
-				i4: "Recruitment Officer",
-				i5: "milo@mail.com",
-				i6: "081265438999",
-				i7: "Active",
-			},
-			{
-				i1: "80123488",
-				i2: "Lilo Anabul Budiman",
-				i3: "Development",
-				i4: "System & Network Admin",
-				i5: "lilo@mail.com",
-				i6: "087765438123",
-				i7: "Active",
-			},
-		];
-		return {
-			tableData,
-		};
-	},
+  data() {
+    return {
+      url: "/campaigns?",
+      tableHeader: [
+        {
+          key: "action",
+          label: "Action",
+        },
+        {
+          key: "name",
+          label: "Name",
+        },
+        {
+          key: "short_description",
+          label: "Short Description",
+        },
+      ],
+      search: "",
+      employeeName: "",
+    }
+  },
+  methods: {
+    doSearch() {
+      this.search = this.url;
+      if (this.employeeName) {
+        this.search += `user_id=${this.employeeName}`;
+      }
+
+      this.$refs.ref_list.getList(this.search);
+    },
+  },
+  mounted() {
+    this.$refs.ref_list.getList(this.url);
+  }
 };
 </script>
 

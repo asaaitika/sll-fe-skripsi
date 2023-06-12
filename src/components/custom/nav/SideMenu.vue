@@ -21,7 +21,7 @@
   </li>
   <router-link :to="{ name: route.to }" v-else v-slot="{ navigate, isExactActive }">
     <li :class="navItemClass + ' ' + (isExactActive ? 'active' : '')">
-      <a ref="elem" :class="navLinkClass + ' ' + ' ' + (isExactActive ? 'active' : '')" aria-current="page" @click="navigate">
+      <a ref="elem" :class="navLinkClass + ' ' + ' ' + (isExactActive ? 'active' : '')" aria-current="page" @click="doLogout(route.to)">
         <i :class="iconClass" v-if="iconClass" v-b-tooltip.hover.right="title" :title="title">
           <icon-component :type="iconType" :icon-name="icon" :size="iconSize"></icon-component>
         </i>
@@ -185,7 +185,14 @@ export default {
       elem,
       collapseActive
     }
-  }
+  },
+  methods: {
+    doLogout(routeTo) {
+      if (routeTo === 'login.admin') {
+        localStorage.clear();
+      }
+    },
+  },
 }
 </script>
 
