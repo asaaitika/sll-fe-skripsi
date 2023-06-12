@@ -242,12 +242,19 @@
 									{{ scope.label }}
 								</div>
 							</template>
+							<template>
+								<div id="font">
+									{{ scope.font }}
+								</div>
+							</template>
 						</b-table>
 					</div>
 				</b-card-body>
 			</b-card>
 		</b-col>
 	</b-row>
+
+	
 
 </template>
 
@@ -290,9 +297,9 @@ export default {
 			items: [
 				{
 					id: "Cilo Anabul Budiman",
-					1: "v",
-					2: "v",
-					3: "v",
+					1: "WFH",
+					2: "WFO",
+					3: "WFH",
 					4: "",
 					5: "",
 					6: "",
@@ -307,9 +314,9 @@ export default {
 				},
 				{
 					id: "Milo Anabul Budiman",
-					1: "v",
-					2: "v",
-					3: "v",
+					1: "WFO",
+					2: "WFH",
+					3: "WFH",
 					4: "",
 					5: "",
 					6: "",
@@ -324,9 +331,9 @@ export default {
 				},
 				{
 					id: "Lilo Anabul Budiman",
-					1: "v",
-					2: "v",
-					3: "v",
+					1: "WFH",
+					2: "WFO",
+					3: "WFH",
 					4: "",
 					5: "",
 					6: "",
