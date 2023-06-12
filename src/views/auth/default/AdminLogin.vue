@@ -19,20 +19,21 @@
 							<div class="card-body">
 								<h2 class="mb-2 align-items-center">Sign In</h2>
 								<p class="align-items-center">Welcome Admin!</p>
-								<form>
+								<form @submit.prevent="">
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="form-group">
 												<label
-													for="email"
+													for="username"
 													class="form-label"
 												>Username</label>
 												<input
-													type="email"
+													type="text"
 													class="form-control"
 													id="email"
 													aria-describedby="email"
 													placeholder=" "
+                          v-model="email"
 												/>
 											</div>
 										</div>
@@ -48,22 +49,17 @@
 													id="password"
 													aria-describedby="password"
 													placeholder=" "
+                          v-model="password"
 												/>
 											</div>
 										</div>
 									</div>
 									<div class="d-flex justify-content-center">
-										<router-link
-											:to="{ name: 'admin.dashboard' }"
-											v-slot="{ navigate }"
-										>
-											<button
-												type="submit"
-												class="btn btn-primary"
-												style="background-color: #3da9fc !important; border-color: #3da9fc !important;"
-												@click="navigate"
-											>Login</button>
-										</router-link>
+                    <button
+                      class="btn btn-primary"
+                      style="background-color: #3da9fc !important; border-color: #3da9fc !important;"
+                      @click="doLogin"
+                    >Login</button>
 									</div>
 									<p class="mt-3 text-center"><a
 											href="/auth/reset-password"
@@ -132,6 +128,57 @@
 	</section>
 </template>
 
-<script setup></script>
+<script>
+import axios from "axios";
+import router from "@/router";
+
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+    }
+  },
+  methods: {
+    doLogin() {
+      const param = {
+        email: this.email,
+        password: this.password,
+      };
+
+      // const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxfQ.N1c2nJo8nCgnpvmf1dYSNq_0tqzl9gs_SBG_aDhVCkE`;
+
+      const headers = {
+        'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${token}`
+      }
+
+      axios
+        .post(`/sessions`, param, {
+          headers: headers,
+        })
+        .then((response) => {
+          // handle success
+          console.log(response?.data?.data);
+          localStorage.admin = JSON.stringify(response?.data?.data);
+          router.replace({ name: 'admin.dashboard' })
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+          alert(error?.response?.data?.meta?.message);
+        })
+        .finally(function () {
+          // always executed
+        });
+    },
+  },
+  mounted() {
+    if (localStorage.admin) {
+      router.replace({ name: 'admin.dashboard' })
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped></style>
