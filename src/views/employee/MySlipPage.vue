@@ -162,17 +162,40 @@
 						</b-row>
 					</b-col>
 				</b-row>
-			</b-card>
-		</b-col>
-	</b-row>
-
+        <b-row>
+          <b-col md="12">
+            <div class="d-flex justify-content-center pb-4">
+              <div class="header-title">
+                <h4 class="card-title pb-2">Take Home Pay</h4>
+                <h4>Rp. 6.467.000</h4>
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row class="pb-5">
+          <b-col md="4"> </b-col>
+          <b-col md="4 ">
+            <a
+              href="#"
+              class="justify-content-center btn btn-primary d-flex gap-2"
+              data-bs-toggle="modal"
+            >
+              Download Payslip
+            </a>
+          </b-col>
+          <b-col md="4"> </b-col>
+        </b-row>
+      </b-card>
+    </b-col>
+  </b-row>
+  
 </template>
 
 <script>
 export default {
-	components: {},
-	setup() {
-		return {};
-	},
+  components: {},
+  setup() {
+    return {};
+  },
 };
 </script>
