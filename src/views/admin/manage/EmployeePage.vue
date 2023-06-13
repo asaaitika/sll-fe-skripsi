@@ -96,6 +96,7 @@
               <b-button
                 v-b-modal.modal-add
                 class="text-center btn btn-primary d-flex gap-2"
+                @click="setTitle('Add Employee')"
               >
                 <svg
                   width="20"
@@ -166,17 +167,15 @@
                   <span class="btn-inner">
                     <icon-component type="outlined" icon-name="trash" /> </span
                 ></b-button>
-                <a
+
+                <b-button
+                  v-b-modal.modal-add
                   class="btn btn-sm btn-icon btn-success mx-1"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="View"
-                  href="#"
+                  @click="setTitle('View Employee')"
                 >
                   <span class="btn-inner">
-                    <icon-component type="outlined" icon-name="eye" />
-                  </span>
-                </a>
+                    <icon-component type="outlined" icon-name="eye" /> </span
+                ></b-button>
               </div>
             </td>
           </template>
@@ -189,7 +188,7 @@
   <b-modal
     id="modal-add"
     size="xl"
-    title="Add Employee"
+    :title="titleModal"
     @show="resetModal"
     @hidden="resetModal"
     @ok="handleOk"
@@ -210,6 +209,7 @@
                   >Employee Name <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8101"
                   v-model="employeeNameForm"
                 ></b-form-input>
@@ -218,13 +218,21 @@
                 <label for="input-8102" class="form-label mb-0"
                   >Email <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="email"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8102"
+                  v-model="email"
+                ></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Phone Number <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="number"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8102"
+                  v-model="number"
+                ></b-form-input>
               </b-col>
             </b-row>
             <b-row class="align-items-center">
@@ -232,19 +240,31 @@
                 <label for="input-8101" class="form-label mb-0"
                   >Sex <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8101" v-model="sex"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8101"
+                  v-model="sex"
+                ></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >City <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="city"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8102"
+                  v-model="city"
+                ></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Province <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="province"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8102"
+                  v-model="province"
+                ></b-form-input>
               </b-col>
             </b-row>
             <b-row class="align-items-center">
@@ -252,31 +272,48 @@
                 <label for="input-8101" class="form-label mb-0"
                   >Address <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8101" v-model="address"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8101"
+                  v-model="address"
+                ></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Division <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="division"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8102"
+                  v-model="division"
+                ></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Role <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="role"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8102"
+                  v-model="role"
+                ></b-form-input>
               </b-col>
             </b-row>
             <b-row class="align-items-center">
               <b-col sm="4">
                 <label for="input-8101" class="form-label mb-0">ZIP</label>
-                <b-form-input id="input-8101" v-model="password"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8101"
+                  v-model="password"
+                ></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Password <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8102"
                   v-model="confirmPassword"
                 ></b-form-input>
@@ -285,7 +322,11 @@
                 <label for="input-8102" class="form-label mb-0"
                   >Confirm Password <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="username"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8102"
+                  v-model="username"
+                ></b-form-input>
               </b-col>
             </b-row>
             <b-row class="align-items-center">
@@ -294,6 +335,7 @@
                   >Username <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8101"
                   v-model="profilePicture"
                 ></b-form-input>
@@ -325,6 +367,7 @@
                   >Account name <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8101"
                   v-model="accountName"
                 ></b-form-input>
@@ -333,7 +376,11 @@
                 <label for="input-8102" class="form-label mb-0"
                   >Bank Name <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="bankName"></b-form-input>
+                <b-form-input
+                  :disabled="titleModal === 'View Employee'"
+                  id="input-8102"
+                  v-model="bankName"
+                ></b-form-input>
               </b-col>
             </b-row>
             <b-row class="align-items-center">
@@ -342,6 +389,7 @@
                   >Account Number <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8101"
                   v-model="accountNumber"
                 ></b-form-input>
@@ -351,6 +399,7 @@
                   >Basic Salary <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8102"
                   v-model="basicSalary"
                 ></b-form-input>
@@ -366,6 +415,7 @@
                   >Begin Contract <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8101"
                   v-model="beginContract"
                 ></b-form-input>
@@ -375,12 +425,14 @@
                   >End Contract <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8102"
                   v-model="endContract"
                 ></b-form-input>
               </b-col>
             </b-row>
             <b-form-checkbox
+              :disabled="titleModal === 'View Employee'"
               id="checkbox-1"
               v-model="isPermanentEmployee"
               name="checkbox-1"
@@ -395,6 +447,7 @@
                   >Employee Status <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8101"
                   v-model="employeeStatus"
                 ></b-form-input>
@@ -404,6 +457,7 @@
                   >Employee ID <span class="text-danger">*</span></label
                 >
                 <b-form-input
+                  :disabled="titleModal === 'View Employee'"
                   id="input-8102"
                   v-model="employeeId"
                 ></b-form-input>
@@ -452,6 +506,9 @@ export default {
       search: "",
       employeeName: "",
 
+      // modal purpose data
+      titleModal: "Add Employee",
+
       // basic info
       employeeNameForm: "",
       email: "",
@@ -489,6 +546,15 @@ export default {
       }
 
       this.$refs.ref_list.getList(this.search);
+    },
+    setTitle(title) {
+      this.titleModal = title;
+      if (
+        this.titleModal === "View Employee" ||
+        this.titleModal === "Edit Employee"
+      ) {
+        // please set data in here
+      }
     },
     deleteConfirm() {
       this.$bvModal
