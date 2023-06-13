@@ -203,47 +203,214 @@
         small
       >
         <b-tab title="Basic Info" active>
-          <b-form-group
-            label="Name"
-            label-for="name-input"
-            invalid-feedback="Name is required"
-            :state="nameState"
-          >
-            <b-form-input
-              id="name-input"
-              v-model="name"
-              :state="nameState"
-              required
-            ></b-form-input> </b-form-group
-        ></b-tab>
+          <b-form-group>
+            <b-row class="align-items-center">
+              <b-col sm="4">
+                <label for="input-8101" class="form-label mb-0"
+                  >Employee Name <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8101"
+                  v-model="employeeNameForm"
+                ></b-form-input>
+              </b-col>
+              <b-col sm="4">
+                <label for="input-8102" class="form-label mb-0"
+                  >Email <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8102" v-model="email"></b-form-input>
+              </b-col>
+              <b-col sm="4">
+                <label for="input-8102" class="form-label mb-0"
+                  >Phone Number <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8102" v-model="number"></b-form-input>
+              </b-col>
+            </b-row>
+            <b-row class="align-items-center">
+              <b-col sm="4">
+                <label for="input-8101" class="form-label mb-0"
+                  >Sex <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8101" v-model="sex"></b-form-input>
+              </b-col>
+              <b-col sm="4">
+                <label for="input-8102" class="form-label mb-0"
+                  >City <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8102" v-model="city"></b-form-input>
+              </b-col>
+              <b-col sm="4">
+                <label for="input-8102" class="form-label mb-0"
+                  >Province <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8102" v-model="province"></b-form-input>
+              </b-col>
+            </b-row>
+            <b-row class="align-items-center">
+              <b-col sm="4">
+                <label for="input-8101" class="form-label mb-0"
+                  >Address <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8101" v-model="address"></b-form-input>
+              </b-col>
+              <b-col sm="4">
+                <label for="input-8102" class="form-label mb-0"
+                  >Division <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8102" v-model="division"></b-form-input>
+              </b-col>
+              <b-col sm="4">
+                <label for="input-8102" class="form-label mb-0"
+                  >Role <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8102" v-model="role"></b-form-input>
+              </b-col>
+            </b-row>
+            <b-row class="align-items-center">
+              <b-col sm="4">
+                <label for="input-8101" class="form-label mb-0">ZIP</label>
+                <b-form-input id="input-8101" v-model="password"></b-form-input>
+              </b-col>
+              <b-col sm="4">
+                <label for="input-8102" class="form-label mb-0"
+                  >Password <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8102"
+                  v-model="confirmPassword"
+                ></b-form-input>
+              </b-col>
+              <b-col sm="4">
+                <label for="input-8102" class="form-label mb-0"
+                  >Confirm Password <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8102" v-model="username"></b-form-input>
+              </b-col>
+            </b-row>
+            <b-row class="align-items-center">
+              <b-col sm="4">
+                <label for="input-8101" class="form-label mb-0"
+                  >Username <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8101"
+                  v-model="profilePicture"
+                ></b-form-input>
+              </b-col>
+              <b-col sm="6">
+                <b-row class="align-items-center">
+                  <b-col sm="3">
+                    <label for="input-8102" class="form-label mb-0"
+                      >Profile Picture</label
+                    >
+                  </b-col>
+                  <b-col sm="9">
+                    <b-form-file
+                      v-model="file2"
+                      class="mt-3"
+                      plain
+                    ></b-form-file>
+                  </b-col>
+                </b-row>
+              </b-col>
+            </b-row>
+          </b-form-group>
+        </b-tab>
         <b-tab title="Finance Info">
-          <b-form-group
-            label="Name"
-            label-for="name-input"
-            invalid-feedback="Name is required"
-            :state="nameState"
-          >
-            <b-form-input
-              id="name-input"
-              v-model="name"
-              :state="nameState"
-              required
-            ></b-form-input> </b-form-group
-        ></b-tab>
+          <b-form-group>
+            <b-row class="align-items-center">
+              <b-col sm="6">
+                <label for="input-8101" class="form-label mb-0"
+                  >Account name <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8101"
+                  v-model="accountName"
+                ></b-form-input>
+              </b-col>
+              <b-col sm="6">
+                <label for="input-8102" class="form-label mb-0"
+                  >Bank Name <span class="text-danger">*</span></label
+                >
+                <b-form-input id="input-8102" v-model="bankName"></b-form-input>
+              </b-col>
+            </b-row>
+            <b-row class="align-items-center">
+              <b-col sm="6">
+                <label for="input-8101" class="form-label mb-0"
+                  >Account Number <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8101"
+                  v-model="accountNumber"
+                ></b-form-input>
+              </b-col>
+              <b-col sm="6">
+                <label for="input-8102" class="form-label mb-0"
+                  >Basic Salary <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8102"
+                  v-model="basicSalary"
+                ></b-form-input>
+              </b-col>
+            </b-row>
+          </b-form-group>
+        </b-tab>
         <b-tab title="Employee Info">
-          <b-form-group
-            label="Name"
-            label-for="name-input"
-            invalid-feedback="Name is required"
-            :state="nameState"
-          >
-            <b-form-input
-              id="name-input"
-              v-model="name"
-              :state="nameState"
-              required
-            ></b-form-input> </b-form-group
-        ></b-tab>
+          <b-form-group>
+            <b-row class="align-items-center">
+              <b-col sm="6">
+                <label for="input-8101" class="form-label mb-0"
+                  >Begin Contract <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8101"
+                  v-model="beginContract"
+                ></b-form-input>
+              </b-col>
+              <b-col sm="6">
+                <label for="input-8102" class="form-label mb-0"
+                  >End Contract <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8102"
+                  v-model="endContract"
+                ></b-form-input>
+              </b-col>
+            </b-row>
+            <b-form-checkbox
+              id="checkbox-1"
+              v-model="isPermanentEmployee"
+              name="checkbox-1"
+              value="yes"
+              unchecked-value="no"
+            >
+              permanent employee
+            </b-form-checkbox>
+            <b-row class="align-items-center">
+              <b-col sm="6">
+                <label for="input-8101" class="form-label mb-0"
+                  >Employee Status <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8101"
+                  v-model="employeeStatus"
+                ></b-form-input>
+              </b-col>
+              <b-col sm="6">
+                <label for="input-8102" class="form-label mb-0"
+                  >Employee ID <span class="text-danger">*</span></label
+                >
+                <b-form-input
+                  id="input-8102"
+                  v-model="employeeId"
+                ></b-form-input>
+              </b-col>
+            </b-row>
+          </b-form-group>
+        </b-tab>
       </b-tabs>
     </form>
     <template #modal-footer>
@@ -284,6 +451,34 @@ export default {
       ],
       search: "",
       employeeName: "",
+
+      // basic info
+      employeeNameForm: "",
+      email: "",
+      number: "",
+      sex: "",
+      city: "",
+      province: "",
+      address: "",
+      division: "",
+      role: "",
+      password: "",
+      confirmPassword: "",
+      username: "",
+      profilePicture: "",
+
+      // finance info
+      accountName: "",
+      bankName: "",
+      accountNumber: "",
+      basicSalary: "",
+
+      // employee info
+      beginContract: "",
+      endContract: "",
+      isPermanentEmployee: "yes",
+      employeeStatus: "",
+      employeeId: "",
     };
   },
   methods: {
