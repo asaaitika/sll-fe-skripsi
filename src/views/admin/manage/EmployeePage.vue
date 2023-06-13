@@ -211,20 +211,20 @@
                 >
                 <b-form-input
                   id="input-8101"
-                  v-model="employeeNameForm"
+                  v-model="employeeNameForm" required
                 ></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Email <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="email"></b-form-input>
+                <b-form-input id="input-8102" v-model="email" required></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
-                  >Phone Number <span class="text-danger">*</span></label
+                  >Phone Number <span class="text-danger" >*</span></label
                 >
-                <b-form-input id="input-8102" v-model="number"></b-form-input>
+                <b-form-input id="input-8102" v-model="number" required></b-form-input>
               </b-col>
             </b-row>
             <b-row class="align-items-center">
@@ -232,19 +232,19 @@
                 <label for="input-8101" class="form-label mb-0"
                   >Sex <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8101" v-model="sex"></b-form-input>
+                <b-form-input id="input-8101" v-model="sex" required></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >City <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="city"></b-form-input>
+                <b-form-input id="input-8102" v-model="city" required></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Province <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="province"></b-form-input>
+                <b-form-input id="input-8102" v-model="province" required></b-form-input>
               </b-col>
             </b-row>
             <b-row class="align-items-center">
@@ -252,25 +252,25 @@
                 <label for="input-8101" class="form-label mb-0"
                   >Address <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8101" v-model="address"></b-form-input>
+                <b-form-input id="input-8101" v-model="address" required></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Division <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="division"></b-form-input>
+                <b-form-input id="input-8102" v-model="division" required></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Role <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="role"></b-form-input>
+                <b-form-input id="input-8102" v-model="role" required></b-form-input>
               </b-col>
             </b-row>
             <b-row class="align-items-center">
               <b-col sm="4">
                 <label for="input-8101" class="form-label mb-0">ZIP</label>
-                <b-form-input id="input-8101" v-model="password"></b-form-input>
+                <b-form-input id="input-8101" v-model="password" required></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
@@ -278,14 +278,14 @@
                 >
                 <b-form-input
                   id="input-8102"
-                  v-model="confirmPassword"
+                  v-model="confirmPassword" required
                 ></b-form-input>
               </b-col>
               <b-col sm="4">
                 <label for="input-8102" class="form-label mb-0"
                   >Confirm Password <span class="text-danger">*</span></label
                 >
-                <b-form-input id="input-8102" v-model="username"></b-form-input>
+                <b-form-input id="input-8102" v-model="username" required></b-form-input>
               </b-col>
             </b-row>
             <b-row class="align-items-center">
@@ -295,7 +295,7 @@
                 >
                 <b-form-input
                   id="input-8101"
-                  v-model="profilePicture"
+                  v-model="profilePicture" required
                 ></b-form-input>
               </b-col>
               <b-col sm="6">
