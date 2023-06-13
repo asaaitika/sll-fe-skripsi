@@ -148,17 +148,17 @@
           <template v-slot:action>
             <td>
               <div class="flex align-items-center list-user-action">
-                <a
+                <b-button
+                  v-b-modal.modal-add
                   class="btn btn-sm btn-icon btn-warning mx-1"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  data-bs-original-title="Edit"
-                  href="#"
+                  @click="setTitle('Edit Employee')"
                 >
                   <span class="btn-inner">
-                    <icon-component type="outlined" icon-name="pencil-alt" />
-                  </span>
-                </a>
+                    <icon-component
+                      type="outlined"
+                      icon-name="pencil-alt"
+                    /> </span
+                ></b-button>
 
                 <b-button
                   class="btn btn-sm btn-icon btn-danger mx-1"
@@ -189,7 +189,6 @@
     id="modal-add"
     size="xl"
     :title="titleModal"
-    @show="resetModal"
     @hidden="resetModal"
     @ok="handleOk"
     ref="modal"
@@ -549,11 +548,57 @@ export default {
     },
     setTitle(title) {
       this.titleModal = title;
+      const mockData = {
+        employeeNameForm: "test",
+        email: "test",
+        number: "test",
+        sex: "test",
+        city: "test",
+        province: "test",
+        address: "test",
+        division: "test",
+        role: "test",
+        password: "test",
+        confirmPassword: "test",
+        username: "test",
+        profilePicture: "test",
+        accountName: "test",
+        bankName: "test",
+        accountNumber: "test",
+        basicSalary: "test",
+        beginContract: "test",
+        endContract: "test",
+        isPermanentEmployee: "no",
+        employeeStatus: "test",
+        employeeId: "test",
+      };
       if (
         this.titleModal === "View Employee" ||
         this.titleModal === "Edit Employee"
       ) {
         // please set data in here
+        this.employeeNameForm = mockData.employeeNameForm;
+        this.email = mockData.email;
+        this.number = mockData.number;
+        this.sex = mockData.sex;
+        this.city = mockData.city;
+        this.province = mockData.province;
+        this.address = mockData.address;
+        this.division = mockData.division;
+        this.role = mockData.role;
+        this.password = mockData.password;
+        this.confirmPassword = mockData.confirmPassword;
+        this.username = mockData.username;
+        this.profilePicture = mockData.profilePicture;
+        this.accountName = mockData.accountName;
+        this.bankName = mockData.bankName;
+        this.accountNumber = mockData.accountNumber;
+        this.basicSalary = mockData.basicSalary;
+        this.beginContract = mockData.beginContract;
+        this.endContract = mockData.endContract;
+        this.isPermanentEmployee = mockData.isPermanentEmployee;
+        this.employeeStatus = mockData.employeeStatus;
+        this.employeeId = mockData.employeeId;
       }
     },
     deleteConfirm() {
@@ -579,6 +624,30 @@ export default {
         .catch((err) => {
           // An error occurred
         });
+    },
+    resetModal() {
+      this.employeeNameForm = "";
+      this.email = "";
+      this.number = "";
+      this.sex = "";
+      this.city = "";
+      this.province = "";
+      this.address = "";
+      this.division = "";
+      this.role = "";
+      this.password = "";
+      this.confirmPassword = "";
+      this.username = "";
+      this.profilePicture = "";
+      this.accountName = "";
+      this.bankName = "";
+      this.accountNumber = "";
+      this.basicSalary = "";
+      this.beginContract = "";
+      this.endContract = "";
+      this.isPermanentEmployee = "";
+      this.employeeStatus = "";
+      this.employeeId = "";
     },
   },
   mounted() {
