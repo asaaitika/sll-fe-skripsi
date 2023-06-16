@@ -234,7 +234,7 @@
 							:fields="fields"
 						>
 							<!-- We are using utility class `text-nowrap` to help illustrate horizontal scrolling -->
-							<template #head(id)="scope">
+							<!-- <template #head(id)="scope">
 								<div class="text-nowrap">Full Name</div>
 							</template>
 							<template #head()="scope">
@@ -246,7 +246,7 @@
 								<div id="font">
 									{{ scope.font }}
 								</div>
-							</template>
+							</template> -->
 						</b-table>
 					</div>
 				</b-card-body>
