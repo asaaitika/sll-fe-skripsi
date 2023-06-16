@@ -80,7 +80,7 @@
 						<br>
 						<div class="d-flex gap-2 flex-wrap justify-content-center">
 							<b-button variant="primary">Search</b-button>
-							<b-button class="btn-white">Reset</b-button>
+							<b-button variant="outline-primary">Reset</b-button>
 						</div>
 					</b-form>
 				</b-card-body>
@@ -188,11 +188,3 @@ export default {
 	},
 };
 </script>
-
-<style scoped>
-.btn-white {
-	background-color: white;
-	border-color: #3da9fc;
-	color: #3da9fc;
-}
-</style>
