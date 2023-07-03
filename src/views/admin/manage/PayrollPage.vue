@@ -112,6 +112,14 @@
 								data-bs-toggle="modal"
 								data-bs-target="#generated"
 							>
+								Export to Excel
+							</a>
+							<a
+								href="#"
+								class="text-center btn btn-primary d-flex gap-2"
+								data-bs-toggle="modal"
+								data-bs-target="#generated"
+							>
 								Generated
 							</a>
 						</div>
