@@ -40,7 +40,7 @@
 					<router-link
 						class="nav-link"
 						:to="{ name: 'login.employee' }"
-					> Logout </router-link>
+					> <a @click="doLogout('login.employee')">Logout</a> </router-link>
 				</li>
 			</ul>
 		</div>

@@ -98,5 +98,8 @@ export default {
 			emit,
 		};
 	},
+	mounted() {
+		console.log(localStorage.employee);
+	},
 };
 </script>

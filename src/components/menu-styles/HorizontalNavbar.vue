@@ -59,7 +59,7 @@
 						<router-link
 							class="nav-link"
 							:to="{ name: 'login.employee' }"
-						> Logout </router-link>
+						> <a @click="doLogout('login.employee')">Logout</a> </router-link>
 					</li>
 				</ul>
 			</div>
@@ -83,4 +83,16 @@
 <script setup>
 import DefaultNavbar from "@/components/custom/navbar/EmployeeNavbar.vue";
 import HorizontalMenu from "@/components/custom/navbar/HorizontalMenu.vue";
+</script>
+
+<script>
+export default {
+	methods: {
+		doLogout(routeTo) {
+			if (routeTo === "login.employee") {
+				localStorage.clear();
+			}
+		},
+	},
+};
 </script>
