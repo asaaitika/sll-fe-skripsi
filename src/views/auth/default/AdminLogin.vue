@@ -169,14 +169,31 @@ export default {
 				})
 				.then((response) => {
 					// handle success
-					console.log(response?.data?.data);
-					localStorage.admin = JSON.stringify(response?.data?.data);
-					router.replace({ name: "admin.dashboard" });
+					// console.log(response?.data?.data);
+					let data = response?.data?.data;
+
+					if (data.division_id != 1) {
+						this.$swal({
+							icon: "error",
+							title: "Oops...",
+							text: "This user not in division HR Team!",
+						});
+					} else {
+						localStorage.admin = JSON.stringify(response?.data?.data);
+
+						router.replace({ name: "admin.dashboard" });
+					}
 				})
 				.catch((error) => {
 					// handle error
-					console.log(error);
-					alert(error?.response?.data?.meta?.message);
+					// console.log(error);
+					let errors = error?.response?.data?.meta?.message;
+
+					this.$swal({
+						icon: "error",
+						title: "Oops...",
+						text: errors,
+					});
 				})
 				.finally(function () {
 					// always executed

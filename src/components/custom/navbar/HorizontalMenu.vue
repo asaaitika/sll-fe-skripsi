@@ -49,6 +49,17 @@
 	<!-- Sidebar Menu End -->
 </template>
 
-<script setup></script>
+<script>
+export default {
+	methods: {
+		doLogout(routeTo) {
+			if (routeTo === "login.employee") {
+				localStorage.clear();
+			}
+		},
+	},
+};
+</script>
+
 
 <style lang="scss" scoped></style>
