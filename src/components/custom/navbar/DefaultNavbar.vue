@@ -75,6 +75,8 @@
 <script>
 import { computed, ref, onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
+import router from "@/router";
+
 export default {
 	data() {
 		return {
