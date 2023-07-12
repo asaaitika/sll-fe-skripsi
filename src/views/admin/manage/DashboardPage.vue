@@ -34,7 +34,7 @@ export default {
 	methods: {},
 	mounted() {
 		this.admin_name = localStorage.admin
-			? JSON.parse(localStorage.employee).employee_name
+			? JSON.parse(localStorage.admin).employee_name
 			: router.replace({ name: "login.admin" });
 
 		setInterval(() => {
