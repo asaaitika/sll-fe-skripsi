@@ -65,7 +65,7 @@
 	<router-link
 		:to="{ name: route.to }"
 		v-else
-		v-slot="{ navigate, isExactActive }"
+		v-slot="{ isExactActive }"
 	>
 		<li :class="navItemClass + ' ' + (isExactActive ? 'active' : '')">
 			<a
@@ -130,6 +130,8 @@
 <script>
 import { ref, watch } from "vue";
 import { useRouter } from "vue-router";
+import router from "@/router";
+
 export default {
 	props: {
 		staticItem: {
@@ -273,7 +275,7 @@ export default {
 	methods: {
 		doLogout(routeTo) {
 			this.$swal({
-				title: "Warning",
+				title: "Warning!",
 				text: "Are you sure want to log out?",
 				type: "warning",
 				showCancelButton: true,

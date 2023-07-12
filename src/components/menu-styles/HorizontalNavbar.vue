@@ -92,7 +92,7 @@ export default {
 	methods: {
 		doLogout(routeTo) {
 			this.$swal({
-				title: "Are you sure?",
+				title: "Warning!",
 				text: "Are you sure want to log out?",
 				type: "warning",
 				showCancelButton: true,
