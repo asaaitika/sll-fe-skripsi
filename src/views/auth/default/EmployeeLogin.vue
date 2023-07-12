@@ -144,11 +144,8 @@ export default {
 				password: this.password,
 			};
 
-			//   const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxfQ.N1c2nJo8nCgnpvmf1dYSNq_0tqzl9gs_SBG_aDhVCkE`;
-
 			const headers = {
 				"Content-Type": "application/json",
-				// 'Authorization': `Bearer ${token}`
 			};
 
 			axios

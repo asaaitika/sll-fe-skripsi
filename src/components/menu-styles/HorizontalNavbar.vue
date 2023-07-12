@@ -86,12 +86,28 @@ import HorizontalMenu from "@/components/custom/navbar/HorizontalMenu.vue";
 </script>
 
 <script>
+import router from "@/router";
+
 export default {
 	methods: {
 		doLogout(routeTo) {
-			if (routeTo === "login.employee") {
-				localStorage.clear();
-			}
+			this.$swal({
+				title: "Are you sure?",
+				text: "Are you sure want to log out?",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#3085d6",
+				cancelButtonColor: "#d33",
+				confirmButtonText: "Yes!",
+				cancelButtonText: "No",
+			}).then((result) => {
+				if (result.value) {
+					if (routeTo === "login.employee") {
+						router.replace({ name: "login.employee" });
+						localStorage.clear();
+					}
+				}
+			});
 		},
 	},
 };
