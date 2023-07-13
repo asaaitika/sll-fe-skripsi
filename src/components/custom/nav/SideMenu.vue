@@ -274,23 +274,25 @@ export default {
 	},
 	methods: {
 		doLogout(routeTo) {
-			this.$swal({
-				title: "Warning!",
-				text: "Are you sure want to log out?",
-				type: "warning",
-				showCancelButton: true,
-				confirmButtonColor: "#3085d6",
-				cancelButtonColor: "#d33",
-				confirmButtonText: "Yes!",
-				cancelButtonText: "No",
-			}).then((result) => {
-				if (result.value) {
-					if (routeTo === "login.admin") {
-						router.replace({ name: "login.admin" });
-						localStorage.clear();
+			if (routeTo === "login.employee") {
+				this.$swal({
+					title: "Warning!",
+					text: "Are you sure want to log out?",
+					type: "warning",
+					showCancelButton: true,
+					confirmButtonColor: "#3085d6",
+					cancelButtonColor: "#d33",
+					confirmButtonText: "Yes!",
+					cancelButtonText: "No",
+				}).then((result) => {
+					if (result.value) {
+						if (routeTo === "login.admin") {
+							router.replace({ name: "login.admin" });
+							localStorage.clear();
+						}
 					}
-				}
-			});
+				});
+			}
 		},
 	},
 };
