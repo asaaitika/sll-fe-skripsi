@@ -89,7 +89,7 @@
 </style>
 
 <script>
-import { ref, onMounted, reactive, watch } from 'vue';
+import { ref, onMounted, provide, watch, defineExpose } from 'vue';
 import { LMap, LTileLayer, LMarker, LPolygon, LPopup, LTooltip, LControl } from 'vue3-leaflet';
 import 'leaflet/dist/leaflet.css';
 import axios from 'axios'; 
@@ -115,6 +115,7 @@ export default {
         const center = ref([0, 0]);
         const currentLocation = ref(null);
         const tooltipText = ref('I am here'); 
+
         const polygonTooltipText = ref('Area Jakarta');
         const polygonColor = ref('#ff00ff');
         const polygonOpacity = ref(0.5);
@@ -145,21 +146,24 @@ export default {
             const currentZoom = map.getZoom();
             console.clear();
             console.log('clear 2');
-            // alert(checkLocation());
+            // L.DomEvent.on(map, 'click', checkLocation);
+            // setTimeout(function () {
+            //     checkLocation();
+            // }, 500);
         }
 
-        function checkLocation() {
-            const currentLocation = L.latLng(center.value[0], center.value[1]);
-            const polygon = L.polygon(polygonCoordinates);
-            const bounds = polygon.getBounds();
-            const isInsidePolygon = bounds.contains(currentLocation);
+        const checkLocation = () => {
+            const currentLatLng = L.latLng(center.value[0], center.value[1]);
+            const polygon = L.polygon(polygonCoordinates.value);
+            const polygonBounds = polygon.getBounds();
+            const isInsidePolygon = polygonBounds.contains(currentLatLng);
 
             if (isInsidePolygon) {
                 alert('You are inside the polygon!');
             } else {
                 alert('You are outside the polygon!');
             }
-        }
+        } 
 
         async function searchLocation(query) {
             try {
@@ -335,7 +339,7 @@ export default {
                 // Handle selectedLocation change
             }
         });
-
+        
         return {
             mapRef,
             isLoading,
@@ -358,7 +362,7 @@ export default {
             debouncedSearchLocation,
             zoomToCurrentLocation,
             onMapReady,
-            // checkLocation,
+            checkLocation,
         };
     },  
 };
