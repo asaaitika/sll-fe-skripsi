@@ -8,6 +8,7 @@
                 class=""
             /> Map Loading...
         </div>
+        
         <div v-else>
             <div class="relative space-y-3">
                 <input
@@ -126,16 +127,21 @@ export default {
             // [-6.4189, 107.1536],
             // [-6.4189, 106.8456],
 
-            [-6.174994, 106.842386],  // Kebon Kosong
-            [-6.129416, 106.864663],  // Sunter Agung
-            [-6.138076, 106.887755],  // Sunter Jaya
-            [-6.144603, 106.907020],  // Sumur Batu
+            // [-6.174994, 106.842386],  // Kebon Kosong
+            // [-6.129416, 106.864663],  // Sunter Agung
+            // [-6.138076, 106.887755],  // Sunter Jaya
+            // [-6.144603, 106.907020],  // Sumur Batu
 
             // around DiPStrategy - Digital Agency Jakarta - PT Digi Porta Semesta
             // [-6.211542127124758, 106.85918247754037],
             // [-6.211645452525985, 106.85921500690907],
             // [-6.211394453533763, 106.85896331309526],
             // [-6.211517110815858, 106.85894453763287],
+
+            [-6.2112972634983805, 106.85892306473109],
+            [-6.211824666204067, 106.85896603654703],
+            [-6.211877655601808, 106.85960566481162],
+            [-6.211329330271555, 106.85957553739338],
         ]); 
 
         const selectedLocation = ref(null);
@@ -159,9 +165,9 @@ export default {
             const isInsidePolygon = polygonBounds.contains(currentLatLng);
 
             if (isInsidePolygon) {
-                alert('You are inside the polygon!');
+                alert('WFO!');
             } else {
-                alert('You are outside the polygon!');
+                alert('WFH!');
             }
         } 
 
