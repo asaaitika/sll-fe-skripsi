@@ -19,20 +19,21 @@
 							<div class="card-body">
 								<h2 class="mb-2 text-center">Login</h2>
 								<p class="text-center">Welcome! to Smart Location Ledger</p>
-								<form>
+								<form @submit.prevent="">
 									<div class="row">
 										<div class="col-lg-12">
 											<div class="form-group">
 												<label
-													for="email"
+													for="username"
 													class="form-label"
 												>Username</label>
 												<input
-													type="email"
+													type="text"
 													class="form-control"
-													id="email"
-													aria-describedby="email"
+													id="username"
+													aria-describedby="username"
 													placeholder=" "
+													v-model="username"
 												/>
 											</div>
 										</div>
@@ -48,21 +49,18 @@
 													id="password"
 													aria-describedby="password"
 													placeholder=" "
+													v-model="password"
 												/>
 											</div>
 										</div>
 									</div>
 									<div class="d-flex justify-content-center">
-										<router-link
-											:to="{ name: 'employee.liveattendance' }"
-											v-slot="{ navigate }"
-										>
-											<button
-												type="submit"
-												class="btn btn-primary"
-												style="background-color: #ef4565 !important; border-color: #ef4565 !important;"
-												@click="navigate"
-											>Login</button></router-link>
+										<button
+											type="submit"
+											class="btn btn-primary"
+											style="background-color: #ef4565 !important; border-color: #ef4565 !important;"
+											@click="doLogin"
+										>Login</button>
 									</div>
 									<p class="mt-3 text-center">Are you Admin? <a
 											href="/"
@@ -127,6 +125,62 @@
 	</section>
 </template>
 
-<script setup></script>
+
+<script>
+import axios from "axios";
+import router from "@/router";
+
+export default {
+	data() {
+		return {
+			username: "",
+			password: "",
+		};
+	},
+	methods: {
+		doLogin() {
+			const param = {
+				username: this.username,
+				password: this.password,
+			};
+
+			const headers = {
+				"Content-Type": "application/json",
+			};
+
+			axios
+				.post(`/login`, param, {
+					headers: headers,
+				})
+				.then((response) => {
+					// handle success
+					// console.log(response?.data?.data);
+					localStorage.employee = JSON.stringify(response?.data?.data);
+
+					router.replace({ name: "employee.liveattendance" });
+				})
+				.catch((error) => {
+					// handle error
+					// console.log(error);
+					let errors = error?.response?.data?.meta?.message;
+
+					this.$swal({
+						icon: "error",
+						title: "Oops...",
+						text: errors,
+					});
+				})
+				.finally(function () {
+					// always executed
+				});
+		},
+	},
+	mounted() {
+		if (localStorage.employee) {
+			router.replace({ name: "employee.liveattendance" });
+		}
+	},
+};
+</script>
 
 <style lang="scss" scoped></style>

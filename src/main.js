@@ -72,7 +72,7 @@ app.use(globalComponent)
 app.use(globalDirective)
 app.mixin(globalMixin)
 
-axios.defaults.baseURL = `https://api-bwastartup.asaaitika.my.id/api/v1`;
+axios.defaults.baseURL = `https://graceful-medley-391916.et.r.appspot.com/api/v1`;
 
 app.mount('#app')
 

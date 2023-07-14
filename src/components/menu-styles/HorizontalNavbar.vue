@@ -59,7 +59,7 @@
 						<router-link
 							class="nav-link"
 							:to="{ name: 'login.employee' }"
-						> Logout </router-link>
+						> <a @click="doLogout('login.employee')">Logout</a> </router-link>
 					</li>
 				</ul>
 			</div>
@@ -83,4 +83,32 @@
 <script setup>
 import DefaultNavbar from "@/components/custom/navbar/EmployeeNavbar.vue";
 import HorizontalMenu from "@/components/custom/navbar/HorizontalMenu.vue";
+</script>
+
+<script>
+import router from "@/router";
+
+export default {
+	methods: {
+		doLogout(routeTo) {
+			this.$swal({
+				title: "Warning!",
+				text: "Are you sure want to log out?",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#3085d6",
+				cancelButtonColor: "#d33",
+				confirmButtonText: "Yes!",
+				cancelButtonText: "No",
+			}).then((result) => {
+				if (result.value) {
+					if (routeTo === "login.employee") {
+						router.replace({ name: "login.employee" });
+						localStorage.clear();
+					}
+				}
+			});
+		},
+	},
+};
 </script>

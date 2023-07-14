@@ -59,7 +59,7 @@
 								class="theme-color-pink-img img-fluid avatar avatar-50 avatar-rounded"
 							/>
 							<div class="caption ms-3 d-none d-md-block">
-								<h6 class="mb-0 caption-title">John Doe</h6>
+								<h6 class="mb-0 caption-title">{{ admin_name }}</h6>
 								<p
 									class="mb-0 caption-sub-title"
 									style="color: #25496e !important"
@@ -75,7 +75,14 @@
 <script>
 import { computed, ref, onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
+import router from "@/router";
+
 export default {
+	data() {
+		return {
+			admin_name: "",
+		};
+	},
 	components: {},
 	props: {
 		isGoPro: {
@@ -119,6 +126,11 @@ export default {
 			carts,
 			emit,
 		};
+	},
+	mounted() {
+		this.admin_name = localStorage.admin
+			? JSON.parse(localStorage.admin).employee_name
+			: router.replace({ name: "login.admin" });
 	},
 };
 </script>

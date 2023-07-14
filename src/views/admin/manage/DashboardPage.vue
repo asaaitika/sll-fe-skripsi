@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="welcome-card">
 			<div class="welcome-text">
-				<span class="text-greeting">Selamat Datang, John Doe!</span>
+				<span class="text-greeting">Selamat Datang, {{ admin_name }}!</span>
 				<div class="date-welcome">
 					<span>{{ this.momentInstance.format('dddd') }}</span>
 					<span>{{ this.momentInstance.format('DD') }}</span>
@@ -22,15 +22,21 @@
 
 <script>
 import moment from "moment";
+import router from "@/router";
 
 export default {
 	data() {
 		return {
+			admin_name: "",
 			momentInstance: moment(),
 		};
 	},
 	methods: {},
 	mounted() {
+		this.admin_name = localStorage.admin
+			? JSON.parse(localStorage.admin).employee_name
+			: router.replace({ name: "login.admin" });
+
 		setInterval(() => {
 			this.momentInstance = moment();
 		}, 1000);
@@ -100,31 +106,31 @@ export default {
 
 @media only screen and (max-width: 768px) {
 	.welcome-card {
-    flex-direction: row;
-  }
+		flex-direction: row;
+	}
 
-  .welcome-card .text-greeting {
-    font-size: 15px;
-  }
+	.welcome-card .text-greeting {
+		font-size: 15px;
+	}
 
-  .date-welcome {
-    padding: 5px;
-  }
+	.date-welcome {
+		padding: 5px;
+	}
 
-  .welcome-time {
-    left: 38%;
-    bottom: 27%;
-    font-size: 17px;
-  }
+	.welcome-time {
+		left: 38%;
+		bottom: 27%;
+		font-size: 17px;
+	}
 
-  .welcome-image img {
-    width: 150px;
-  }
+	.welcome-image img {
+		width: 150px;
+	}
 
-  .welcome-image {
-    position: absolute;
-    right: 7%;
-    top: 13%;
-  }
+	.welcome-image {
+		position: absolute;
+		right: 7%;
+		top: 13%;
+	}
 }
 </style>

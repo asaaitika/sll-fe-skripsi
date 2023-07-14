@@ -26,7 +26,7 @@
 									<div class="twit-feed">
 										<div class="d-flex align-items-center gap-4 mt-2">
 											<div class="media-support-info">
-												<h6 class="mb-0">Cilo Anabul Budiman</h6>
+												<h6 class="mb-0"> {{ employee_name }} </h6>
 												<p class="mb-0">
 													Employee
 												</p>
@@ -162,40 +162,52 @@
 						</b-row>
 					</b-col>
 				</b-row>
-        <b-row>
-          <b-col md="12">
-            <div class="d-flex justify-content-center pb-4">
-              <div class="header-title">
-                <h4 class="card-title pb-2">Take Home Pay</h4>
-                <h4>Rp. 6.467.000</h4>
-              </div>
-            </div>
-          </b-col>
-        </b-row>
-        <b-row class="pb-5">
-          <b-col md="4"> </b-col>
-          <b-col md="4 ">
-            <a
-              href="#"
-              class="justify-content-center btn btn-primary d-flex gap-2"
-              data-bs-toggle="modal"
-            >
-              Download Payslip
-            </a>
-          </b-col>
-          <b-col md="4"> </b-col>
-        </b-row>
-      </b-card>
-    </b-col>
-  </b-row>
-  
+				<b-row>
+					<b-col md="12">
+						<div class="d-flex justify-content-center pb-4">
+							<div class="header-title">
+								<h4 class="card-title pb-2">Take Home Pay</h4>
+								<h4>Rp. 6.467.000</h4>
+							</div>
+						</div>
+					</b-col>
+				</b-row>
+				<b-row class="pb-5">
+					<b-col md="4"> </b-col>
+					<b-col md="4 ">
+						<a
+							href="#"
+							class="justify-content-center btn btn-primary d-flex gap-2"
+							data-bs-toggle="modal"
+						>
+							Download Payslip
+						</a>
+					</b-col>
+					<b-col md="4"> </b-col>
+				</b-row>
+			</b-card>
+		</b-col>
+	</b-row>
+
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
-  components: {},
-  setup() {
-    return {};
-  },
+	components: {},
+	data() {
+		return {
+			employee_name: "",
+		};
+	},
+	setup() {
+		return {};
+	},
+	mounted() {
+		this.employee_name = localStorage.employee
+			? JSON.parse(localStorage.employee).employee_name
+			: router.replace({ name: "login.employee" });
+	},
 };
 </script>

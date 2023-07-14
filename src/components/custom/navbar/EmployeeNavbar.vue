@@ -37,7 +37,7 @@
 								<h6
 									class="mb-0 caption-title"
 									style="color: white !important;"
-								>Cilo Anabul Budiman</h6>
+								> {{ employee_name }} </h6>
 								<p
 									class="mb-0 caption-sub-title"
 									style="color: #f8abba !important"
@@ -53,8 +53,15 @@
 <script>
 import { computed, ref, onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
+import router from "@/router";
+
 export default {
 	components: {},
+	data() {
+		return {
+			employee_name: "",
+		};
+	},
 	props: {
 		isGoPro: {
 			type: Boolean,
@@ -97,6 +104,11 @@ export default {
 			carts,
 			emit,
 		};
+	},
+	mounted() {
+		this.employee_name = localStorage.employee
+			? JSON.parse(localStorage.employee).employee_name
+			: router.replace({ name: "login.employee" });
 	},
 };
 </script>
